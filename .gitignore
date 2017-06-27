@@ -1,7 +1,7 @@
 #custom
 *.swp
 .idea/
-
+utils.py
 
 reated by https://www.gitignore.io/api/vim,git,macos,linux,django,python,pycharm
 

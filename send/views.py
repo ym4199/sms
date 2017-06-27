@@ -7,11 +7,11 @@ from sdk.exceptions import CoolsmsException
 from utils.utils import util_api_key, util_api_secret,util_send_from_number
 
 
-@sensitive_variables('api_key', 'api_secret', 'send_from_number')
+
 def send_sms(request):
-    api_key = 'NCSGLMHSQ2FTVZUA'
-    api_secret = '2ZNM5ZPZR07QHSLHVIFAH3XZR1GAGM2F'
-    send_from_number = '01029953874'
+    api_key = util_api_key
+    api_secret = util_api_secret
+    send_from_number = util_send_from_number
 
     if request.method == 'POST':
         info = request.POST
