@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="send_to">
+    <input type="text" name="send_text">
+    <button type="submit">send</button>
+</form>
+<form action="" method="GET">
+    {{ send_from }}
+</form>
 </body>
 </html>
