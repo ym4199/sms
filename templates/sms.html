@@ -7,12 +7,13 @@
 <body>
 <form action="" method="POST">
     {% csrf_token %}
-    <input type="text" name="send_to">
-    <input type="text" name="send_text">
+    <div><input type="text" name="send_to" placeholder="보낼 번호를 넣어주세요"></div>
+    <br>
+    <textarea name="send_text" id="" cols="30" rows="10" placeholder="메세지를 입력해주세요. 45자까지 가능합니다."></textarea>
     <button type="submit">send</button>
 </form>
 <form action="" method="GET">
-    {{ send_from }}
+    해당 번호 ({{ send_from }}) 로 전송됩니다.
 </form>
 </body>
 </html>

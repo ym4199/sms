@@ -1,20 +1,25 @@
 # Create your views here.
 from django.shortcuts import render
+from django.views.decorators.debug import sensitive_variables
 from sdk.api.message import Message
 from sdk.exceptions import CoolsmsException
 
+from utils.utils import util_api_key, util_api_secret,util_send_from_number
 
+
+@sensitive_variables('api_key', 'api_secret', 'send_from_number')
 def send_sms(request):
+    api_key = 'NCSGLMHSQ2FTVZUA'
+    api_secret = '2ZNM5ZPZR07QHSLHVIFAH3XZR1GAGM2F'
+    send_from_number = '01029953874'
+
     if request.method == 'POST':
         info = request.POST
-
-        api_key = "replace value"
-        api_secret = "replace value"
 
         params = dict()
         params['type'] = 'sms'
         params['to'] = info['send_to']
-        params['from'] = '010********'
+        params['from'] = send_from_number
         params['text'] = info['send_text']
 
         cool = Message(api_key, api_secret)
@@ -40,11 +45,9 @@ def send_sms(request):
             print("Error Code : %s" % e.code)
             print("Error Message : %s" % e.msg)
 
-
     else:
-
         context = {
-            'send_from': '01029953874'
+            'send_from': send_from_number
         }
 
         return render(request, 'sms.html', context)
